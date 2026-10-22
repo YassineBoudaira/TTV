@@ -1,0 +1,28 @@
+digraph G { rankdir=RL; bgcolor="white"; pad=0.3; nodesep=0.35; ranksep=0.5; compound=true; 
+node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=12, margin="0.14,0.08", color="#667"];
+edge [fontname="DejaVu Sans", fontsize=10, color="#556"];
+graph [fontname="DejaVu Sans", fontsize=13, style="rounded", color="#99A"];
+subgraph cluster_t { label="الذكاء النصي (السيناريو والترجمة والتوجيه الفني)"; style="rounded,filled"; fillcolor="#FAFAFA";
+t0 [label="Gemini\nمفتاح مجاني", fillcolor="#FFE8CC", shape=box];
+t1 [label="Groq\nمفتاح مجاني", fillcolor="#FFE8CC", shape=box];
+t2 [label="Claude\nمدفوع", fillcolor="#EEEEEE", shape=box];
+t3 [label="Ollama\nمحلي مجاني", fillcolor="#EEEEEE", shape=box];
+t4 [label="سيناريو بسيط\nلغة المقال فقط", fillcolor="#FFD9D9", shape=box];
+t0 -> t1 -> t2 -> t3 -> t4 [label="عند الفشل"];
+}
+subgraph cluster_i { label="الصور"; style="rounded,filled"; fillcolor="#FAFAFA";
+i0 [label="Gemini Nano Banana\nمفتاح مجاني محدود", fillcolor="#FFE8CC", shape=box];
+i1 [label="Cloudflare FLUX.1\nمجاني 10 آلاف/يوم", fillcolor="#FFE8CC", shape=box];
+i2 [label="صور المقال\nصور حقيقية", fillcolor="#E3F5E1", shape=box];
+i3 [label="خلفية سادة", fillcolor="#FFD9D9", shape=box];
+i0 -> i1 -> i2 -> i3 [label="عند الفشل"];
+}
+subgraph cluster_v { label="الصوت"; style="rounded,filled"; fillcolor="#FAFAFA";
+v0 [label="Azure Speech\nرسمي مجاني 500 ألف حرف", fillcolor="#FFE8CC", shape=box];
+v1 [label="Edge neural\nمجاني غير رسمي", fillcolor="#FFE8CC", shape=box];
+v2 [label="Piper\nدون إنترنت، عربي آلي", fillcolor="#EEEEEE", shape=box];
+v3 [label="Windows / espeak", fillcolor="#EEEEEE", shape=box];
+v4 [label="صامت", fillcolor="#FFD9D9", shape=box];
+v0 -> v1 -> v2 -> v3 -> v4 [label="عند الفشل"];
+}
+}

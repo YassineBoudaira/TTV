@@ -1,0 +1,22 @@
+{
+  "site_url": "https://nestpetanimals.com",
+  "brand": "nestpetanimals.com",
+  "target_langs": ["en", "fr", "ar", "es"],
+  "formats": ["wide", "tall"],
+  "profile": "auto",
+  "posts_per_run": 3,
+  "on_edit": "archive",
+  "max_attempts": 3,
+  "short_max_seconds": 58,
+  "mini_seconds": 35,
+  "minis": true,
+  "music": true,
+  "ai_images": true,
+  "art_director": true,
+  "image_providers": ["pollinations", "cloudflare", "gemini"],
+  "tts_order": ["edge", "azure", "piper", "sapi", "espeak"],
+  "piper_exe": "",
+  "piper_models": {"ar": "", "en": "", "fr": "", "es": ""},
+  "sapi_voices": {"ar": "", "en": "", "fr": "", "es": ""},
+  "font": ""
+}

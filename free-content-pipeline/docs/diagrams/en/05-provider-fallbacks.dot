@@ -1,0 +1,28 @@
+digraph G { rankdir=LR; bgcolor="white"; pad=0.3; nodesep=0.35; ranksep=0.5; compound=true; 
+node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=12, margin="0.14,0.08", color="#667"];
+edge [fontname="DejaVu Sans", fontsize=10, color="#556"];
+graph [fontname="DejaVu Sans", fontsize=13, style="rounded", color="#99A"];
+subgraph cluster_t { label="TEXT AI (script, translation, art direction)"; style="rounded,filled"; fillcolor="#FAFAFA";
+t0 [label="Gemini\nfree key", fillcolor="#FFE8CC", shape=box];
+t1 [label="Groq\nfree key", fillcolor="#FFE8CC", shape=box];
+t2 [label="Claude\npaid", fillcolor="#EEEEEE", shape=box];
+t3 [label="Ollama\nlocal, free", fillcolor="#EEEEEE", shape=box];
+t4 [label="simple script\nsource language only", fillcolor="#FFD9D9", shape=box];
+t0 -> t1 -> t2 -> t3 -> t4 [label="if it fails"];
+}
+subgraph cluster_i { label="IMAGES"; style="rounded,filled"; fillcolor="#FAFAFA";
+i0 [label="Gemini Nano Banana\nfree key, limited", fillcolor="#FFE8CC", shape=box];
+i1 [label="Cloudflare FLUX.1\nfree 10k neurons/day", fillcolor="#FFE8CC", shape=box];
+i2 [label="article photos\nreal photos", fillcolor="#E3F5E1", shape=box];
+i3 [label="plain background", fillcolor="#FFD9D9", shape=box];
+i0 -> i1 -> i2 -> i3 [label="if it fails"];
+}
+subgraph cluster_v { label="VOICE"; style="rounded,filled"; fillcolor="#FAFAFA";
+v0 [label="Azure Speech\nofficial, free 500k chars", fillcolor="#FFE8CC", shape=box];
+v1 [label="Edge neural\nfree, unofficial", fillcolor="#FFE8CC", shape=box];
+v2 [label="Piper\noffline, robotic Arabic", fillcolor="#EEEEEE", shape=box];
+v3 [label="Windows / espeak", fillcolor="#EEEEEE", shape=box];
+v4 [label="silent", fillcolor="#FFD9D9", shape=box];
+v0 -> v1 -> v2 -> v3 -> v4 [label="if it fails"];
+}
+}

@@ -1,0 +1,30 @@
+digraph G { rankdir=TB; bgcolor="white"; pad=0.3; nodesep=0.35; ranksep=0.5; compound=true; 
+node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=12, margin="0.14,0.08", color="#667"];
+edge [fontname="DejaVu Sans", fontsize=10, color="#556"];
+graph [fontname="DejaVu Sans", fontsize=13, style="rounded", color="#99A"];
+subgraph cluster_pc { label="Your PC (Windows)"; style="rounded,filled"; fillcolor="#FAF6FF";
+ps [label="PowerShell\nssh / scp", fillcolor="#EBDDFB", shape=box];
+key [label="SSH key\n.ssh/id_ed25519", fillcolor="#EBDDFB", shape=box];
+dl [label="videos folder\n(you review and publish)", fillcolor="#EBDDFB", shape=box];
+}
+subgraph cluster_vps { label="VPS server (Ubuntu 24.04)"; style="rounded,filled"; fillcolor="#F4FAFF";
+setup [label="scripts/server_setup.sh\nFFmpeg, fonts, voices, firewall,\nfail2ban, key-only SSH", fillcolor="#DCEBFF", shape=box];
+env [label=".env (keys, chmod 600)\nconfig.json", fillcolor="#E3F5E1", shape=box];
+cron [label="cron 03:00 + flock\npipeline.py --site", fillcolor="#DCEBFF", shape=box];
+run [label="pipeline: new / edited / partial posts only", fillcolor="#DCEBFF", shape=box];
+out [label="output/  state.json  run.log", fillcolor="#E3F5E1", shape=folder];
+}
+wp [label="nestpetanimals.com\n(WordPress)", fillcolor="#FFE8CC", shape=box];
+api [label="Gemini / Cloudflare /\nAzure / Groq", fillcolor="#FFE8CC", shape=box];
+big [label="LATER: stronger server (e.g. Oracle Cloud)\nsame steps - hw.py raises the profile alone", fillcolor="#EEEEEE", shape=box];
+ps -> setup [label="1 scp zip + ssh"];
+key -> ps;
+setup -> env [label="2 add keys"];
+env -> run;
+cron -> run;
+wp -> run [label="REST"];
+run -> api;
+run -> out;
+out -> dl [label="3 scp -r output"];
+out -> big [label="move state.json + .env"];
+}

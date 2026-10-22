@@ -1,0 +1,12 @@
+ffconcat version 1.0
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s02_tall_c00.png'
+duration 1.1100
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s02_tall_c01.png'
+duration 1.0250
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s02_tall_c02.png'
+duration 0.6500
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s02_tall_c03.png'
+duration 0.8500
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s02_tall_c04.png'
+duration 1.7817
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s02_tall_c04.png'

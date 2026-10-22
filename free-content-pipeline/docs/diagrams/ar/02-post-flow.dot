@@ -1,0 +1,19 @@
+digraph G { rankdir=TB; bgcolor="white"; pad=0.3; nodesep=0.35; ranksep=0.5; compound=true; 
+node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=12, margin="0.14,0.08", color="#667"];
+edge [fontname="DejaVu Sans", fontsize=10, color="#556"];
+graph [fontname="DejaVu Sans", fontsize=13, style="rounded", color="#99A"];
+a [label="قراءة كل مقالات الموقع (REST ثم RSS)", fillcolor="#FFE8CC", shape=box];
+b [label="الخطة: تصنيف كل مقال\nجديد / معدّل / ناقص / منجز", fillcolor="#DCEBFF", shape=box];
+c [label="أخذ المقالات التالية من الطابور (limit)\nالمنجزة تُتخطى", fillcolor="#DCEBFF", shape=box];
+d [label="معدّل؟ عرض الفروق وأرشفة الفيديوهات القديمة", fillcolor="#FFD9D9", shape=box];
+e [label="حفظ المقال وتحميل صوره", fillcolor="#E3F5E1", shape=box];
+f [label="السيناريو الرئيسي (خطاف ومشاهد ووصف)\nبالذكاء الاصطناعي - مخزّن حسب بصمة المحتوى", fillcolor="#DCEBFF", shape=box];
+g [label="التوجيه الفني: تحليل المقال والبحث (ويكيبيديا + الويب)\nووصف صورة واقعية لكل مشهد", fillcolor="#DCEBFF", shape=box];
+h [label="توطين السيناريو لكل لغة\n(مع فحص اللغة وعدد المشاهد)", fillcolor="#DCEBFF", shape=box];
+i [label="الصور مرة واحدة لكل اللغات\nصورة مولّدة أو من المقال (فحص الجودة)", fillcolor="#FFE8CC", shape=box];
+j [label="لكل لغة: الصوت والمقاطع الصامتة ومسار صوت واحد\nوالترجمة ثم التجميع", fillcolor="#DCEBFF", shape=box];
+k [label="المخرجات: فيديو وShort ومقاطع وصورة مصغرة وSRT وpublish.txt", fillcolor="#CFF2D5", shape=box];
+l [label="حفظ الحالة بعد كل لغة\n(اللغة الفاشلة: محاولات +1)", fillcolor="#E3F5E1", shape=box];
+a->b->c->d->e->f->g->h->i->j->k->l;
+l -> c [style=dashed, constraint=false, label="التشغيل التالي / المقال التالي"];
+}

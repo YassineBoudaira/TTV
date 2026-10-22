@@ -1,0 +1,12 @@
+ffconcat version 1.0
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s01_wide_c00.png'
+duration 2.4350
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s01_wide_c01.png'
+duration 2.7500
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s01_wide_c02.png'
+duration 1.7250
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s01_wide_c03.png'
+duration 1.6375
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s01_wide_c04.png'
+duration 1.7858
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s01_wide_c04.png'

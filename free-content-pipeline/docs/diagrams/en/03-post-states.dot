@@ -1,0 +1,23 @@
+digraph G { rankdir=LR; bgcolor="white"; pad=0.3; nodesep=0.35; ranksep=0.5; compound=true; 
+node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=12, margin="0.14,0.08", color="#667"];
+edge [fontname="DejaVu Sans", fontsize=10, color="#556"];
+graph [fontname="DejaVu Sans", fontsize=13, style="rounded", color="#99A"];
+new [label="NEW\nnever seen", fillcolor="#DCEBFF", shape=box];
+edited [label="EDITED\ntext hash changed", fillcolor="#FFD9D9", shape=box];
+part [label="PARTIAL\na language is missing\nattempts left", fillcolor="#FFE8CC", shape=box];
+gave [label="GAVE UP\n3 failed attempts", fillcolor="#EEEEEE", shape=box];
+meta [label="META\nonly the date changed", fillcolor="#EEEEEE", shape=box];
+done [label="COMPLETE\nall languages done\n(skipped)", fillcolor="#CFF2D5", shape=box];
+q [label="QUEUE order:\n1. new  2. edited  3. partial", fillcolor="#E3F5E1", shape=note];
+new -> done [label="all languages ok"];
+new -> part [label="a language failed"];
+part -> done [label="retry ok"];
+part -> gave [label="failed 3 times"];
+gave -> part [label="--retry-failed"];
+done -> edited [label="text edited"];
+done -> meta [label="date only"];
+meta -> done [label="nothing to redo"];
+edited -> new [label="old videos archived,\nrevision + 1"];
+gave -> edited [label="an edit resets attempts"];
+q -> new [style=invis];
+}

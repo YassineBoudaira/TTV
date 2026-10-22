@@ -1,0 +1,6 @@
+{
+  "name": "Veo & AI Video Studio — Text-to-Video API Guide",
+  "description": "Comprehensive guide and interactive studio for free and paid Text-to-Video APIs, including Google Veo (Gemini Omni Flash), prompt director, code generators, and video previews.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

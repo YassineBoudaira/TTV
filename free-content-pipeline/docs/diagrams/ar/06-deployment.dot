@@ -1,0 +1,30 @@
+digraph G { rankdir=TB; bgcolor="white"; pad=0.3; nodesep=0.35; ranksep=0.5; compound=true; 
+node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=12, margin="0.14,0.08", color="#667"];
+edge [fontname="DejaVu Sans", fontsize=10, color="#556"];
+graph [fontname="DejaVu Sans", fontsize=13, style="rounded", color="#99A"];
+subgraph cluster_pc { label="حاسوبك (Windows)"; style="rounded,filled"; fillcolor="#FAF6FF";
+ps [label="PowerShell\nssh / scp", fillcolor="#EBDDFB", shape=box];
+key [label="مفتاح SSH\n.ssh/id_ed25519", fillcolor="#EBDDFB", shape=box];
+dl [label="مجلد الفيديوهات\n(تراجعها وتنشرها)", fillcolor="#EBDDFB", shape=box];
+}
+subgraph cluster_vps { label="خادم VPS (Ubuntu 24.04)"; style="rounded,filled"; fillcolor="#F4FAFF";
+setup [label="scripts/server_setup.sh\nFFmpeg والخطوط والأصوات والجدار الناري\nوfail2ban ودخول بالمفتاح فقط", fillcolor="#DCEBFF", shape=box];
+env [label=".env (المفاتيح، صلاحيات 600)\nconfig.json", fillcolor="#E3F5E1", shape=box];
+cron [label="cron الساعة 03:00 مع flock\npipeline.py --site", fillcolor="#DCEBFF", shape=box];
+run [label="الخط: المقالات الجديدة والمعدّلة والناقصة فقط", fillcolor="#DCEBFF", shape=box];
+out [label="output/  state.json  run.log", fillcolor="#E3F5E1", shape=folder];
+}
+wp [label="nestpetanimals.com\n(ووردبريس)", fillcolor="#FFE8CC", shape=box];
+api [label="Gemini / Cloudflare /\nAzure / Groq", fillcolor="#FFE8CC", shape=box];
+big [label="لاحقاً: خادم أقوى (مثل Oracle Cloud)\nالخطوات نفسها - hw.py يرفع الملف تلقائياً", fillcolor="#EEEEEE", shape=box];
+ps -> setup [label="1 رفع zip + ssh"];
+key -> ps;
+setup -> env [label="2 إضافة المفاتيح"];
+env -> run;
+cron -> run;
+wp -> run [label="REST"];
+run -> api;
+run -> out;
+out -> dl [label="3 scp -r output"];
+out -> big [label="نقل state.json و .env"];
+}

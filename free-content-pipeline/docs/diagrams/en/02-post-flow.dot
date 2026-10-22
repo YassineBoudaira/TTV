@@ -1,0 +1,19 @@
+digraph G { rankdir=TB; bgcolor="white"; pad=0.3; nodesep=0.35; ranksep=0.5; compound=true; 
+node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=12, margin="0.14,0.08", color="#667"];
+edge [fontname="DejaVu Sans", fontsize=10, color="#556"];
+graph [fontname="DejaVu Sans", fontsize=13, style="rounded", color="#99A"];
+a [label="Read all posts of the site (REST, else RSS)", fillcolor="#FFE8CC", shape=box];
+b [label="Plan: classify each post\nnew / edited / partial / complete", fillcolor="#DCEBFF", shape=box];
+c [label="Take the next posts of the queue (limit)\nfinished posts are skipped", fillcolor="#DCEBFF", shape=box];
+d [label="Edited? show the diff, archive the old videos", fillcolor="#FFD9D9", shape=box];
+e [label="Save article.md + download the post images", fillcolor="#E3F5E1", shape=box];
+f [label="Master script (hook, scenes, description)\nby the text AI - cached by content hash", fillcolor="#DCEBFF", shape=box];
+g [label="Art direction: analyze article, research (Wikipedia + web),\none realistic photo prompt per scene", fillcolor="#DCEBFF", shape=box];
+h [label="Localize the script for each language\n(checked: right language, same scene count)", fillcolor="#DCEBFF", shape=box];
+i [label="Images once for all languages\nAI image or article photo (quality gate)", fillcolor="#FFE8CC", shape=box];
+j [label="For each language: voice, silent clips, ONE audio track,\ncaptions, assemble", fillcolor="#DCEBFF", shape=box];
+k [label="Outputs: video, short, minis, thumbnail, SRT, publish.txt", fillcolor="#CFF2D5", shape=box];
+l [label="Save state after EACH language\n(failed language: attempts +1)", fillcolor="#E3F5E1", shape=box];
+a->b->c->d->e->f->g->h->i->j->k->l;
+l -> c [style=dashed, constraint=false, label="next run / next post"];
+}

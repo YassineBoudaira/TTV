@@ -1,0 +1,6 @@
+ffconcat version 1.0
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s03_tall_c00.png'
+duration 0.8350
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s03_tall_c01.png'
+duration 3.4567
+file '/app/applet/free-content-pipeline/output/example-en/en/work/s03_tall_c01.png'

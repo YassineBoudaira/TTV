@@ -1,0 +1,23 @@
+digraph G { rankdir=RL; bgcolor="white"; pad=0.3; nodesep=0.35; ranksep=0.5; compound=true; 
+node [shape=box, style="rounded,filled", fontname="DejaVu Sans", fontsize=12, margin="0.14,0.08", color="#667"];
+edge [fontname="DejaVu Sans", fontsize=10, color="#556"];
+graph [fontname="DejaVu Sans", fontsize=13, style="rounded", color="#99A"];
+new [label="جديد\nلم يُرَ من قبل", fillcolor="#DCEBFF", shape=box];
+edited [label="معدّل\nتغيّرت بصمة النص", fillcolor="#FFD9D9", shape=box];
+part [label="ناقص\nلغة مفقودة\nومحاولات متبقية", fillcolor="#FFE8CC", shape=box];
+gave [label="تم التوقف\n3 محاولات فاشلة", fillcolor="#EEEEEE", shape=box];
+meta [label="تغيّر التاريخ فقط\nالنص نفسه", fillcolor="#EEEEEE", shape=box];
+done [label="منجز\nكل اللغات جاهزة\n(يُتخطى)", fillcolor="#CFF2D5", shape=box];
+q [label="ترتيب الطابور:\n1. جديد  2. معدّل  3. ناقص", fillcolor="#E3F5E1", shape=note];
+new -> done [label="كل اللغات نجحت"];
+new -> part [label="فشلت لغة"];
+part -> done [label="نجحت المحاولة"];
+part -> gave [label="فشلت 3 مرات"];
+gave -> part [label="--retry-failed"];
+done -> edited [label="عُدّل النص"];
+done -> meta [label="التاريخ فقط"];
+meta -> done [label="لا شيء لإعادته"];
+edited -> new [label="أرشفة القديم\nورقم نسخة +1"];
+gave -> edited [label="التعديل يصفّر المحاولات"];
+q -> new [style=invis];
+}
